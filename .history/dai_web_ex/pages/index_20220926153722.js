@@ -12,6 +12,24 @@ export default function Home() {
   //before, during, after
   const [loginState, setLoginState] = useState("before")
 
+  var c = "blue";
+  var btn_txt = "click me"
+
+  if(loginState === "before"){
+    c = "blue"
+    btn_txt = "Login";
+  }
+
+  if(loginState === "during"){
+    c = "green"
+    btn_txt = "Logging in..";
+  }
+
+  if(loginState === "after"){
+    c = "grey"
+    btn_txt = "Success";
+  }
+
   const Login = async () => {
     setLoginState("during");
 
@@ -33,9 +51,7 @@ export default function Home() {
       {/* <Button color={c} onClick={()=>Login()}
       >{btn_txt}</Button>
       {loginState === "during" && <Loader active />} */}
-      <LoginForm 
-      loginState={loginState}
-      onLoginClick={()=>Login()}/>
+      <LoginForm loginState={loginState}/>
     </div>
   )
 }
